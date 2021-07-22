@@ -8,7 +8,10 @@ spring:
       enabled: true # Enabling H2 Console
       path: /h2-console
   datasource:
-    url: jdbc:h2:mem:testdb
+    url: jdbc:h2:file:~/dio;DB_CLOSE_ON_EXIT=FALSE;INIT=CREATE SCHEMA IF NOT EXISTS DIO
     username: sa
     password:
     driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
