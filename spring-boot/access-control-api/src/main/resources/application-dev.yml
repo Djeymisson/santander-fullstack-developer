@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+spring:
+  # H2 Connection
+  h2:
+    console:
+      enabled: true # Enabling H2 Console
+      path: /h2-console
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver

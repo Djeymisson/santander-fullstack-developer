@@ -1,0 +1,14 @@
+spring:
+  # MySQL Connection
+  datasource:
+    url: jdbc:mysql://localhost:3306/digital_innovation_one
+    username: root
+    password: <DB_PASSWORD>
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+      show-sql: true
+      properties:
+        hibernate:
+          formart_sql: true
+      hibernate:
+        ddl-auto: none
