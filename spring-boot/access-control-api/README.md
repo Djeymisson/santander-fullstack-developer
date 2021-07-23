@@ -1,4 +1,4 @@
-# Sistema de Controle de Ponto de Acesso
+# Sistema de Controle de Ponto e Acesso
 Projeto desenvolvido como parte do *Bootcamp Santanger Fullstack Developer* na trilha de Spring Boot. 
 
 Foram efetuadas algumas adaptações nas dependências para remover o uso de ferramentas depreciadas e novas formas de importação do repositório.
