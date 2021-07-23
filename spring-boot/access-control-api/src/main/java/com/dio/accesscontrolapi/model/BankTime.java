@@ -1,6 +1,7 @@
 package com.dio.accesscontrolapi.model;
 
 import lombok.*;
+import org.hibernate.envers.Audited;
 
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
@@ -18,6 +19,7 @@ import java.time.LocalDateTime;
 @Builder
 @Entity
 @Table(schema= "access_control_api")
+@Audited
 public class BankTime { // Movimentação
 
     @AllArgsConstructor
