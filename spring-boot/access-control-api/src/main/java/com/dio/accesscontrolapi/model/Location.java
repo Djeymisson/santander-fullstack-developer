@@ -3,10 +3,7 @@ package com.dio.accesscontrolapi.model;
 import lombok.*;
 import org.hibernate.envers.Audited;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -20,6 +17,7 @@ import javax.persistence.Table;
 public class Location {
 
     @Id
+    @GeneratedValue
     private long id;
 
     private String description;

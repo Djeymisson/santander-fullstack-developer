@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(schema= "access_control_api")
 @Audited
-public class BankTime { // Movimentação
+public class BankTime { // Banco de horas
 
     @AllArgsConstructor
     @NoArgsConstructor

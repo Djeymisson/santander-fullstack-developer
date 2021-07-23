@@ -3,10 +3,7 @@ package com.dio.accesscontrolapi.model;
 import lombok.*;
 import org.hibernate.envers.Audited;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
@@ -21,6 +18,7 @@ import java.time.LocalDateTime;
 public class Calendar {
 
     @Id
+    @GeneratedValue
     private Long id;
 
     private String description;

@@ -4,7 +4,6 @@ import lombok.*;
 import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
@@ -19,21 +18,16 @@ import java.time.LocalDateTime;
 @Audited
 public class Entry { // Movimentação
 
-    @AllArgsConstructor
-    @NoArgsConstructor
-    @EqualsAndHashCode
-    @Embeddable
-    public static class EntryId implements Serializable {
-        private long idEntry;
-        private long idUser;
-    }
-
-    @EmbeddedId
-    private EntryId id;
+    @Id
+    @GeneratedValue
+    private long id;
 
     private LocalDateTime inDate;
     private LocalDateTime outDate;
     private BigDecimal period;
+
+    @ManyToOne
+    private User user;
 
     @ManyToOne
     private Occurrence occurrence;
