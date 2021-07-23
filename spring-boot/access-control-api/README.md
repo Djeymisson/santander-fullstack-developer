@@ -13,4 +13,4 @@ Neste projeto você terá o desafio de desenvolver uma API Rest para controle de
 
 ## Diagrama ER
 
-![DIAGRAMA_ER]()
+![DIAGRAMA_ER](https://github.com/Djeymisson/santander-fullstack-developer/blob/main/spring-boot/access-control-api/er_diagram.png)
