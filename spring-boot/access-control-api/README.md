@@ -1,7 +1,7 @@
 # Sistema de Controle de Ponto de Acesso
 Projeto desenvolvido como parte do *Bootcamp Santanger Fullstack Developer* na trilha de Spring Boot. 
 
-Foram algumas adaptações nas dependências para remover o uso de ferramentas depreciadas e atender as especificações do Gradle.
+Foram efetuadas algumas adaptações nas dependências para remover o uso de ferramentas depreciadas e novas formas de importação do repositório.
 
 As regras de negócios foram abstraídas, então nesse projeto só criei um CRUD para as entidades que achei necessário de acordo com a importância observada no diagrama entidade relacionamento que foi passado.
 
