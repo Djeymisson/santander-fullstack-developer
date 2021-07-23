@@ -26,8 +26,8 @@ public class WorkloadService {
         return workloadRepository.findById(id);
     }
 
-    public Optional<Workload> update(Workload workload) {
-        return workloadRepository.findById(workload.getId())
+    public Optional<Workload> update(Workload workload, Long id) {
+        return workloadRepository.findById(id)
                 .map(w -> workloadRepository.save(workload));
     }
 

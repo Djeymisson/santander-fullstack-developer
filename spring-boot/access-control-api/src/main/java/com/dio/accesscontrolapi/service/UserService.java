@@ -26,8 +26,8 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    public Optional<User> update(User user) {
-        return userRepository.findById(user.getId())
+    public Optional<User> update(User user, Long id) {
+        return userRepository.findById(id)
                 .map(u -> userRepository.save(user));
     }
 

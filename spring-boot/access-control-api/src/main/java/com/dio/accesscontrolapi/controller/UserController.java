@@ -27,14 +27,14 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<User> create(@RequestBody User w) {
-        return ResponseEntity.ok(userService.save(w));
+    public ResponseEntity<User> create(@RequestBody User user) {
+        return ResponseEntity.ok(userService.save(user));
     }
 
-    @PutMapping
-    public ResponseEntity<User> update(@RequestBody User user) {
-        return userService.update(user)
-                .map(ResponseEntity::ok)
+    @PutMapping("/{id}")
+    public ResponseEntity<?> update(@RequestBody User user, @PathVariable final Long id) {
+        return userService.update(user, id)
+                .map(u -> ResponseEntity.ok().build())
                 .orElse(ResponseEntity.notFound().build());
     }
 

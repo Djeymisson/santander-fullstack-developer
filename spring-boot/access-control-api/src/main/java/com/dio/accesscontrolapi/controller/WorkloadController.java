@@ -28,14 +28,14 @@ public class WorkloadController {
     }
 
     @PostMapping
-    public ResponseEntity<Workload> create(@RequestBody Workload w) {
-        return ResponseEntity.ok(workloadService.save(w));
+    public ResponseEntity<Workload> create(@RequestBody Workload workload) {
+        return ResponseEntity.ok(workloadService.save(workload));
     }
 
-    @PutMapping
-    public ResponseEntity<Workload> update(@RequestBody Workload w) {
-        return workloadService.update(w)
-                .map(ResponseEntity::ok)
+    @PutMapping("/{id}")
+    public ResponseEntity<?> update(@RequestBody Workload workload, @PathVariable final Long id) {
+        return workloadService.update(workload, id)
+                .map(w -> ResponseEntity.ok().build())
                 .orElse(ResponseEntity.notFound().build());
     }
 

@@ -27,14 +27,14 @@ public class CompanyController {
     }
 
     @PostMapping
-    public ResponseEntity<Company> create(@RequestBody Company w) {
-        return ResponseEntity.ok(companyService.save(w));
+    public ResponseEntity<Company> create(@RequestBody Company company) {
+        return ResponseEntity.ok(companyService.save(company));
     }
 
-    @PutMapping
-    public ResponseEntity<Company> update(@RequestBody Company company) {
-        return companyService.update(company)
-                .map(ResponseEntity::ok)
+    @PutMapping("/{id}")
+    public ResponseEntity<?> update(@RequestBody Company company, @PathVariable final Long id) {
+        return companyService.update(company, id)
+                .map(c -> ResponseEntity.ok().build())
                 .orElse(ResponseEntity.notFound().build());
     }
 

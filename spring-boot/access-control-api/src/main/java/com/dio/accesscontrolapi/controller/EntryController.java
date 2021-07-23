@@ -27,14 +27,14 @@ public class EntryController {
     }
 
     @PostMapping
-    public ResponseEntity<Entry> create(@RequestBody Entry w) {
-        return ResponseEntity.ok(entryService.save(w));
+    public ResponseEntity<Entry> create(@RequestBody Entry entry) {
+        return ResponseEntity.ok(entryService.save(entry));
     }
 
-    @PutMapping
-    public ResponseEntity<Entry> update(@RequestBody Entry entry) {
-        return entryService.update(entry)
-                .map(ResponseEntity::ok)
+    @PutMapping("/{id}")
+    public ResponseEntity<?> update(@RequestBody Entry entry, @PathVariable final Long id) {
+        return entryService.update(entry, id)
+                .map(e -> ResponseEntity.ok().build())
                 .orElse(ResponseEntity.notFound().build());
     }
 

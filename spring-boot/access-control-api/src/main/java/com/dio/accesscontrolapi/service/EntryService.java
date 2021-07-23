@@ -26,8 +26,8 @@ public class EntryService {
         return entryRepository.findById(id);
     }
 
-    public Optional<Entry> update(Entry entry) {
-        return entryRepository.findById(entry.getId())
+    public Optional<Entry> update(Entry entry, Long id) {
+        return entryRepository.findById(id)
                 .map(x -> entryRepository.save(entry));
     }
 

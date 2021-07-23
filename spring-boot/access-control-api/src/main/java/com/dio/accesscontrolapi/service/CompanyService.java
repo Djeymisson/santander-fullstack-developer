@@ -26,8 +26,8 @@ public class CompanyService {
         return companyRepository.findById(id);
     }
 
-    public Optional<Company> update(Company company) {
-        return companyRepository.findById(company.getId())
+    public Optional<Company> update(Company company, Long id) {
+        return companyRepository.findById(id)
                 .map(c -> companyRepository.save(company));
     }
 
