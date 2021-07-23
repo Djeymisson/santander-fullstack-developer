@@ -14,5 +14,11 @@ spring:
     driver-class-name: org.h2.Driver
   jpa:
     hibernate:
+      show-sql: true
       dialect: org.hibernate.dialect.H2Dialect
       ddl-auto: update
+    properties:
+      org:
+        hibernate:
+          envers:
+            default_schema: access_control_api
