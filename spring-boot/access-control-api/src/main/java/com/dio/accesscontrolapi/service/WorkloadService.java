@@ -26,19 +26,19 @@ public class WorkloadService {
         return workloadRepository.findById(id);
     }
 
-    public Optional<Workload> update(Workload w, Long id) {
-        return workloadRepository.findById(id)
+    public Optional<Workload> update(Workload w) {
+        return workloadRepository.findById(w.getId())
                 .map(workload -> {
                     workload.setDescription(w.getDescription());
                     return workloadRepository.save(workload);
                 });
     }
 
-    public Optional<Boolean> delete(Long id) {
+    public Boolean delete(Long id) {
         return workloadRepository.findById(id)
                 .map(w -> {
-                    workloadRepository.deleteById(id);
+                    workloadRepository.deleteById(w.getId());
                     return true;
-                });
+                }).orElse(false);
     }
 }

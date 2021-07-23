@@ -32,18 +32,17 @@ public class WorkloadController {
         return ResponseEntity.ok(workloadService.save(w));
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Workload> update(@RequestBody Workload w, @PathVariable final Long id) {
-        return workloadService.update(w, id)
+    @PutMapping
+    public ResponseEntity<Workload> update(@RequestBody Workload w) {
+        return workloadService.update(w)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Boolean> delete(@PathVariable final Long id) {
-        return workloadService.delete(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<?> delete(@PathVariable final Long id) {
+        return workloadService.delete(id) ?
+                ResponseEntity.ok().build() : ResponseEntity.notFound().build();
     }
 
 }
