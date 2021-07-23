@@ -15,7 +15,7 @@ spring:
   jpa:
     hibernate:
       dialect: org.hibernate.dialect.H2Dialect
-      ddl-auto: update
+      ddl-auto: create
       type: TRACE
     show_sql: true
     properties:
