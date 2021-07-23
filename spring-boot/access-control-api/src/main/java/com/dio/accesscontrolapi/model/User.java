@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode
 @Builder
 @Entity
-@Table(schema = "DIO")
+@Table(schema = "access_control_api")
 public class User {
     @Id
     private long id;

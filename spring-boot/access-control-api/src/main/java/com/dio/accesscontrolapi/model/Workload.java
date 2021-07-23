@@ -2,9 +2,7 @@ package com.dio.accesscontrolapi.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -13,10 +11,11 @@ import javax.persistence.Table;
 @EqualsAndHashCode
 @Builder
 @Entity
-@Table(schema= "DIO")
+@Table(schema= "access_control_api")
 public class Workload {
 
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
 
     private String description;

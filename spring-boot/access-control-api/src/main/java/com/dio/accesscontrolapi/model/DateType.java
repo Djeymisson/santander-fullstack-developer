@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @EqualsAndHashCode
 @Builder
 @Entity
-@Table(schema= "DIO")
+@Table(schema= "access_control_api")
 public class DateType {
 
     @Id
