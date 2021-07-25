@@ -31,7 +31,4 @@ public class Owner {
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Phone> phones;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Pet> pets;
-
 }

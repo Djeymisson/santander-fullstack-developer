@@ -11,6 +11,7 @@ import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
 import javax.validation.Valid;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.List;
@@ -31,14 +32,12 @@ public class OwnerDTO {
     @NotEmpty
     private String cpf;
 
+    @Email
     @NotEmpty
     private String email;
 
     @Valid
     @NotEmpty
     private List<PhoneDTO> phones;
-
-    @Valid
-    private List<PetDTO> pets;
 
 }

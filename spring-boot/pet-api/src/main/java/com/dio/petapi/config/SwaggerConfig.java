@@ -30,7 +30,6 @@ public class SwaggerConfig {
                 .title("PetAPI")
                 .description("API para gerenciamento de animais domésticos e seus donos.")
                 .version("1.0.0")
-                .license("Apache License Version 2.0")
                 .build();
     }
 

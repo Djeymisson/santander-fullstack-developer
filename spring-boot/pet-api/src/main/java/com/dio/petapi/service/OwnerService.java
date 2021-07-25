@@ -8,10 +8,8 @@ import com.dio.petapi.exception.OwnerNotFoundException;
 import com.dio.petapi.mapper.OwnerMapper;
 import com.dio.petapi.repository.OwnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,12 +21,12 @@ public class OwnerService {
 
     private final OwnerMapper ownerMapper = OwnerMapper.INSTANCE;
 
-    public MessageResponseDTO createOwner(OwnerDTO ownerDTO) throws InfoConflictException {
+    public OwnerDTO createOwner(OwnerDTO ownerDTO) throws InfoConflictException {
         verifyInfo(ownerDTO);
 
         Owner savedOwner = ownerRepository.save(ownerMapper.toModel(ownerDTO));
 
-        return createMessageResponse(savedOwner.getId(), "Created owner with ID ");
+        return ownerMapper.toDTO(savedOwner);
     }
 
     public List<OwnerDTO> findAll() {
