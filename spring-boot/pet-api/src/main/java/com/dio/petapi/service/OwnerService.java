@@ -8,7 +8,12 @@ import com.dio.petapi.exception.OwnerNotFoundException;
 import com.dio.petapi.mapper.OwnerMapper;
 import com.dio.petapi.repository.OwnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import javax.validation.Valid;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class OwnerService {
@@ -25,6 +30,13 @@ public class OwnerService {
 
         Owner savedOwner = ownerRepository.save(ownerToSave);
         return createMessageResponse(savedOwner.getId(), "Created owner with ID ");
+    }
+
+    public List<OwnerDTO> findAll() {
+        return ownerRepository.findAll()
+                .stream()
+                .map(ownerMapper::toDTO)
+                .collect(Collectors.toList());
     }
 
     public MessageResponseDTO updateById(Long id, OwnerDTO ownerDTO) throws OwnerNotFoundException {

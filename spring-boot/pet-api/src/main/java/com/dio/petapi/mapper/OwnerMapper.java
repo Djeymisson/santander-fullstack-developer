@@ -11,7 +11,6 @@ public interface OwnerMapper {
 
     OwnerMapper INSTANCE = Mappers.getMapper(OwnerMapper.class);
 
-    @Mapping(target = "cpf", source = "cpf")
     Owner toModel(OwnerDTO ownerDTO);
 
     OwnerDTO toDTO(Owner owner);
