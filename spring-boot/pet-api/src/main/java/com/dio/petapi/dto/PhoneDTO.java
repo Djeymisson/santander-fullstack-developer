@@ -1,4 +1,4 @@
-package com.dio.petapi.dto.request;
+package com.dio.petapi.dto;
 
 import com.dio.petapi.enums.PhoneType;
 import lombok.AllArgsConstructor;
@@ -16,7 +16,7 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 public class PhoneDTO {
 
-    private long id;
+    private Long id;
 
     @Enumerated(EnumType.STRING)
     private PhoneType type;

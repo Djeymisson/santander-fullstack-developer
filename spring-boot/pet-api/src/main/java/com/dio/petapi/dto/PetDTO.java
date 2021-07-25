@@ -1,4 +1,4 @@
-package com.dio.petapi.dto.request;
+package com.dio.petapi.dto;
 
 import com.dio.petapi.entity.Owner;
 import com.dio.petapi.enums.Species;
@@ -21,7 +21,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class PetDTO {
 
-    private long id;
+    private Long id;
 
     @NotEmpty
     @Size(min = 2, max = 100)

@@ -1,15 +1,11 @@
-package com.dio.petapi.dto.request;
+package com.dio.petapi.dto;
 
-import com.dio.petapi.entity.Pet;
-import com.dio.petapi.entity.Phone;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.UniqueElements;
 import org.hibernate.validator.constraints.br.CPF;
 
-import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -22,7 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 public class OwnerDTO {
 
-    private long id;
+    private Long id;
 
     @NotEmpty
     @Size(min = 2, max = 100)

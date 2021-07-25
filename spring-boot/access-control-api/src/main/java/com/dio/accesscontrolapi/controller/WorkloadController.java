@@ -28,6 +28,7 @@ public class WorkloadController {
     }
 
     @PostMapping
+    //@ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Workload> create(@RequestBody Workload workload) {
         return ResponseEntity.ok(workloadService.save(workload));
     }
