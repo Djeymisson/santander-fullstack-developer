@@ -26,9 +26,8 @@ public class OwnerService {
     public MessageResponseDTO createOwner(OwnerDTO ownerDTO) throws InfoConflictException {
         verifyInfo(ownerDTO);
 
-        Owner ownerToSave = ownerMapper.toModel(ownerDTO);
+        Owner savedOwner = ownerRepository.save(ownerMapper.toModel(ownerDTO));
 
-        Owner savedOwner = ownerRepository.save(ownerToSave);
         return createMessageResponse(savedOwner.getId(), "Created owner with ID ");
     }
 
@@ -39,13 +38,23 @@ public class OwnerService {
                 .collect(Collectors.toList());
     }
 
-    public MessageResponseDTO updateById(Long id, OwnerDTO ownerDTO) throws OwnerNotFoundException {
+    public OwnerDTO findById(Long id) throws OwnerNotFoundException {
+        return ownerRepository.findById(id)
+                .map(ownerMapper::toDTO)
+                .orElseThrow(() -> new OwnerNotFoundException(id));
+    }
+
+    public OwnerDTO updateById(Long id, OwnerDTO ownerDTO) throws OwnerNotFoundException {
         verifyIfExists(id);
 
-        Owner ownerToUpdate = ownerMapper.toModel(ownerDTO);
+        Owner updatedOwner = ownerRepository.save(ownerMapper.toModel(ownerDTO));
+        
+        return ownerMapper.toDTO(updatedOwner);
+    }
 
-        Owner updatedOwner = ownerRepository.save(ownerToUpdate);
-        return createMessageResponse(updatedOwner.getId(), "Updated owner with ID ");
+    public void delete(Long id) throws OwnerNotFoundException {
+        verifyIfExists(id);
+        ownerRepository.deleteById(id);
     }
 
     private void verifyInfo(OwnerDTO ownerDTO) throws InfoConflictException {
