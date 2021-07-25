@@ -54,6 +54,7 @@ public class OwnerService {
 
     public void delete(Long id) throws OwnerNotFoundException {
         verifyIfExists(id);
+
         ownerRepository.deleteById(id);
     }
 
