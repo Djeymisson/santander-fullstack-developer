@@ -1,0 +1,2 @@
+CREATE SCHEMA IF NOT EXISTS pet_api;
+SET SCHEMA pet_api;
