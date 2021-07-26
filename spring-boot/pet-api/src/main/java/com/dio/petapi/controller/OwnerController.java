@@ -1,7 +1,6 @@
 package com.dio.petapi.controller;
 
-import com.dio.petapi.dto.request.OwnerDTO;
-import com.dio.petapi.dto.response.MessageResponseDTO;
+import com.dio.petapi.dto.OwnerDTO;
 import com.dio.petapi.exception.InfoConflictException;
 import com.dio.petapi.exception.OwnerNotFoundException;
 import com.dio.petapi.service.OwnerService;
@@ -26,13 +25,8 @@ public class OwnerController {
     private OwnerService ownerService;
 
     @ApiOperation(value = "Create a owner")
-    @ApiResponses(value = {
-            @ApiResponse(code = 201, message = "Fetch a list of owners"),
-            @ApiResponse(code = 400, message = "An information validation error occurred"),
-            @ApiResponse(code = 409, message = "An information conflict occurred"),
-            @ApiResponse(code = 500, message = "An exception occurred"),
-    })
-    @PostMapping(consumes="application/json",produces="application/json")
+    @PostMapping(consumes="application/json", produces="application/json")
+    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<OwnerDTO> create(@Valid @RequestBody OwnerDTO ownerDTO) throws InfoConflictException {
         OwnerDTO newOwner = ownerService.createOwner(ownerDTO);
 
@@ -42,13 +36,12 @@ public class OwnerController {
                 .buildAndExpand(newOwner.getId())
                 .toUri();
 
-        return ResponseEntity.created(location).build();
+        return ResponseEntity.created(location).body(ownerDTO);
     }
 
     @ApiOperation(value = "Get a list of owners")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Fetched a list of owners"),
-            @ApiResponse(code = 500, message = "An exception occurred"),
     })
     @GetMapping(produces="application/json")
     public ResponseEntity<List<OwnerDTO>> findAll() {
@@ -57,9 +50,7 @@ public class OwnerController {
 
     @ApiOperation(value = "Get an owner by id")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Fetched a owner"),
-            @ApiResponse(code = 404, message = "Owner not found"),
-            @ApiResponse(code = 500, message = "An exception occurred"),
+            @ApiResponse(code = 200, message = "Fetched a owner")
     })
     @GetMapping(value = "/{id}", produces="application/json")
     public ResponseEntity<OwnerDTO> findById(@PathVariable Long id) throws OwnerNotFoundException {
@@ -67,23 +58,12 @@ public class OwnerController {
     }
 
     @ApiOperation(value = "Update an owner by id")
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Owner updated"),
-            @ApiResponse(code = 400, message = "An information validation error occurred"),
-            @ApiResponse(code = 404, message = "Owner not found"),
-            @ApiResponse(code = 500, message = "An exception occurred"),
-    })
     @PutMapping(value = "/{id}", consumes="application/json", produces="application/json")
     public ResponseEntity<OwnerDTO> update(@PathVariable Long id, @Valid @RequestBody OwnerDTO ownerDTO) throws OwnerNotFoundException {
         return ResponseEntity.ok(ownerService.updateById(id,ownerDTO));
     }
 
     @ApiOperation(value = "Delete an owner by id")
-    @ApiResponses(value = {
-            @ApiResponse(code = 204, message = "Owner deleted"),
-            @ApiResponse(code = 404, message = "Owner not found"),
-            @ApiResponse(code = 500, message = "An exception occurred"),
-    })
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) throws OwnerNotFoundException {
         ownerService.delete(id);

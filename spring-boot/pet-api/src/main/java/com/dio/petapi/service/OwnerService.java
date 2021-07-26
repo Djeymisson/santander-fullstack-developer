@@ -1,7 +1,6 @@
 package com.dio.petapi.service;
 
-import com.dio.petapi.dto.request.OwnerDTO;
-import com.dio.petapi.dto.response.MessageResponseDTO;
+import com.dio.petapi.dto.OwnerDTO;
 import com.dio.petapi.entity.Owner;
 import com.dio.petapi.exception.InfoConflictException;
 import com.dio.petapi.exception.OwnerNotFoundException;
@@ -66,15 +65,8 @@ public class OwnerService {
     }
 
     private void verifyIfExists(Long id) throws OwnerNotFoundException {
-        if(ownerRepository.existsById(id))
+        if(!ownerRepository.existsById(id))
             throw new OwnerNotFoundException(id);
-    }
-
-    private MessageResponseDTO createMessageResponse(Long id, String message) {
-        return MessageResponseDTO
-                .builder()
-                .message(message + id)
-                .build();
     }
 
 }
