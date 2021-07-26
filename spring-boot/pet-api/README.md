@@ -2,7 +2,9 @@
 
 Projeto desenvolvido baseado no apresentado pelo especialista Rodrigo Peleias na trilha de Spring Boot do Bootcamp de Desenvolvedor Fullstack.
 
-Essa API foi desenvolvida para servir como um serviço de Gerenciamento de Animais Domésticos e seus donos. Ela trabalha com três entidades:
+Essa API foi desenvolvida como um serviço de Gerenciamento de Animais Domésticos e seus donos para um sistema de Clínica Veterinária. A ideia é complementar um sistema com serviços de agendamento de consultas, alerta de vacinas e controle de estoque de remédios.
+
+Ela lida com três entidades:
 * _Owner_: Que guarda as informações gerais e de contato sobre o dono do animal.
 * _Pet_: Que registra as informações do animal, como data de nascimento, nome, e espécie.
 * _Phone_: Que guarda as informações de telefones para contato do _Owner_.
@@ -32,7 +34,6 @@ http://localhost:8081/api/pet
 Os _endpoints_ adicionais podem ser vistos na documentação do _Swagger2_ disponível em:
 
 ```
-// Para as operações com Pets
 http://localhost:8081/swagger-ui/
 ```
 
