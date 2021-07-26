@@ -17,7 +17,7 @@ public class OwnerUtils {
                 .name(NAME)
                 .cpf(CPF)
                 .email(EMAIL)
-                .phones(Collections.singletonList(PhoneUtils.createFakeDTO()))
+                .phones(Collections.singleton(PhoneUtils.createFakeDTO()))
                 .build();
     }
 
@@ -27,7 +27,7 @@ public class OwnerUtils {
                 .name(NAME)
                 .cpf(CPF)
                 .email(EMAIL)
-                .phones(Collections.singletonList(PhoneUtils.createFakeSavedDTO()))
+                .phones(Collections.singleton(PhoneUtils.createFakeSavedDTO()))
                 .build();
     }
 
@@ -37,7 +37,7 @@ public class OwnerUtils {
                 .name(NAME)
                 .cpf(CPF)
                 .email(EMAIL)
-                .phones(Collections.singletonList(PhoneUtils.createFakeEntity()))
+                .phones(Collections.singleton(PhoneUtils.createFakeEntity()))
                 .build();
     }
 

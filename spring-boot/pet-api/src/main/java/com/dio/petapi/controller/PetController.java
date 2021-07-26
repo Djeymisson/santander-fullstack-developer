@@ -1,8 +1,6 @@
 package com.dio.petapi.controller;
 
-import com.dio.petapi.dto.OwnerDTO;
 import com.dio.petapi.dto.PetDTO;
-import com.dio.petapi.entity.Pet;
 import com.dio.petapi.exception.OwnerNotFoundException;
 import com.dio.petapi.exception.PetNotFoundException;
 import com.dio.petapi.service.PetService;

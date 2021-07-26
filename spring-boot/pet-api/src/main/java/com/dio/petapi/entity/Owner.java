@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -28,7 +28,10 @@ public class Owner {
     @Column(nullable = false, unique = true)
     private String email;
 
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Phone> phones;
+
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<Phone> phones;
+    private Set<Pet> pets;
 
 }

@@ -10,7 +10,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-import java.util.List;
+import java.util.Set;
 
 @Data
 @Builder
@@ -34,6 +34,8 @@ public class OwnerDTO {
 
     @Valid
     @NotEmpty
-    private List<PhoneDTO> phones;
+    private Set<PhoneDTO> phones;
+
+    private Set<PetDTO> pets;
 
 }

@@ -11,7 +11,6 @@ public interface PetMapper {
 
     PetMapper INSTANCE = Mappers.getMapper(PetMapper.class);
 
-//    @Mapping(target = "birthDate", source = "birthDate", dateFormat = "dd-MM-yyyy")
     Pet toModel(PetDTO ownerDTO);
 
     PetDTO toDTO(Pet owner);
