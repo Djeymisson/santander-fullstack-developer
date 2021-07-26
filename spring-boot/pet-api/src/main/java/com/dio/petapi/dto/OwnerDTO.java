@@ -36,6 +36,4 @@ public class OwnerDTO {
     @NotEmpty
     private Set<PhoneDTO> phones;
 
-    private Set<PetDTO> pets;
-
 }

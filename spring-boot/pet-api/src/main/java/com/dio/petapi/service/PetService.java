@@ -1,7 +1,6 @@
 package com.dio.petapi.service;
 
 import com.dio.petapi.dto.PetDTO;
-import com.dio.petapi.entity.Owner;
 import com.dio.petapi.entity.Pet;
 import com.dio.petapi.exception.OwnerNotFoundException;
 import com.dio.petapi.exception.PetNotFoundException;
@@ -48,6 +47,13 @@ public class PetService {
         return petRepository.findById(id)
                 .map(petMapper::toDTO)
                 .orElseThrow(() -> new PetNotFoundException(id));
+    }
+
+    public List<PetDTO> findByOwner(Long id) {
+        return petRepository.findByOwnerId(id)
+                .stream()
+                .map(petMapper::toDTO)
+                .collect(Collectors.toList());
     }
 
     public PetDTO updateById(Long id, PetDTO petDTO) throws PetNotFoundException {

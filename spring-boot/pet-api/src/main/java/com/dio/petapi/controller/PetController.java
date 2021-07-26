@@ -42,7 +42,7 @@ public class PetController {
         return ResponseEntity.created(location).body((newPet));
     }
 
-    @ApiOperation(value = "Get a list of pet")
+    @ApiOperation(value = "Get a list of pets")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Fetched a list of pets"),
     })
@@ -58,6 +58,16 @@ public class PetController {
     @GetMapping(value = "/{id}", produces="application/json")
     public ResponseEntity<PetDTO> findById(@PathVariable Long id) throws PetNotFoundException {
         return ResponseEntity.ok(petService.findById(id));
+    }
+
+    @ApiOperation(value = "Get a list of pets by owners")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Fetched a list of pets of an owner"),
+            @ApiResponse(code = 404, message = "Owner not found."),
+    })
+    @GetMapping(value = "/owner/{id}", produces="application/json")
+    public ResponseEntity<List<PetDTO>> findByOwner(@PathVariable Long id) {
+        return ResponseEntity.ok(petService.findByOwner(id));
     }
 
     @ApiOperation(value = "Update an pet by id")
