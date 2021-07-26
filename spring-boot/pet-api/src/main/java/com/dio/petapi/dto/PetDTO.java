@@ -12,13 +12,14 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class PetDTO {
 
     private Long id;
@@ -27,16 +28,16 @@ public class PetDTO {
     @Size(min = 2, max = 100)
     private String name;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "dd-MM-yyyy")
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate birthDate;
 
-    @NotEmpty
+    @NotNull
     @Enumerated(EnumType.STRING)
     private Species species;
 
     @Valid
-    @NotEmpty
-    private Owner owner;
+    @NotNull
+    private OwnerDTO owner;
 
 }

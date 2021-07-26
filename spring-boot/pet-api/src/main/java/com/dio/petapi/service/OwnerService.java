@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 public class OwnerService {
 
     @Autowired
-    OwnerRepository ownerRepository;
+    private OwnerRepository ownerRepository;
 
     private final OwnerMapper ownerMapper = OwnerMapper.INSTANCE;
 

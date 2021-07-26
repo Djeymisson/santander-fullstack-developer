@@ -36,7 +36,7 @@ public class OwnerController {
                 .buildAndExpand(newOwner.getId())
                 .toUri();
 
-        return ResponseEntity.created(location).body(ownerDTO);
+        return ResponseEntity.created(location).body((newOwner));
     }
 
     @ApiOperation(value = "Get a list of owners")

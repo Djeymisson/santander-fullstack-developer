@@ -29,7 +29,7 @@ public class Pet {
     @Enumerated(EnumType.STRING)
     private Species species;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Owner owner;
 
 }

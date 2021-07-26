@@ -36,7 +36,9 @@ public class OwnerServiceTest {
 
         when(ownerRepository.save(any(Owner.class))).thenReturn(entity);
 
-        assertEquals(savedDTO, ownerService.createOwner(ownerDTO));
+        OwnerDTO returnedOwner = ownerService.createOwner(ownerDTO);
+        assertEquals(savedDTO, returnedOwner);
+        assertEquals(savedDTO.getId(), returnedOwner.getId());
     }
 
     @Test
@@ -51,7 +53,6 @@ public class OwnerServiceTest {
         assertEquals(savedDTO, foundOwner);
         assertEquals(savedDTO.getId(), foundOwner.getId());
         assertEquals(savedDTO.getName(), foundOwner.getName());
-
     }
 
     @Test
@@ -81,7 +82,6 @@ public class OwnerServiceTest {
         when(ownerRepository.save(any(Owner.class))).thenReturn(updatedEntity);
 
         assertEquals(toUpdateDTO, ownerService.updateById(ownerId, toUpdateDTO));
-
     }
 
     @Test
@@ -108,7 +108,6 @@ public class OwnerServiceTest {
         ownerService.delete(ownerId);
 
         verify(ownerRepository, times(1)).deleteById(ownerId);
-
     }
 
     @Test
