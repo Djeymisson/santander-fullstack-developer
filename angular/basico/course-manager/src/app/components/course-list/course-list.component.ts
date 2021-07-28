@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { CourseService } from "src/app/services/course.service";
 import { Course } from "../../models/course";
 
 @Component({
@@ -7,34 +8,29 @@ import { Course } from "../../models/course";
 })
 export class CourseListComponent implements OnInit {
 
-    courses: Course[] = [];
+    filteredCourse: Course[] = [];
+
+    _courses: Course[] = [];
+
+    _filterBy!: String;
+
+    constructor(private courseService: CourseService) { }
 
     ngOnInit(): void {
-        this.courses = [
-            {
-                id: 1,
-                name: 'Angular: CLI',
-                releaseDate: 'November 2, 2019',
-                description: 'Neste curso, os alunos irão obter um grande conhecimento nos principais recursos do CLI.',
-                duration: 120,
-                code: 'XLF-1212',
-                rating: 3,
-                price: 12.99,
-                imageUrl: '/assets/images/castle.png',
-            },
-            {
-                id: 2,
-                name: 'Angular: Forms',
-                releaseDate: 'November 4, 2019',
-                description: 'Neste curso, os alunos irão obter um conhecimento aprofundado sobre os recursos disponíveis no módulo de Forms.',
-                duration: 80,
-                code: 'DWQ-3412',
-                rating: 3.5,
-                price: 24.99,
-                imageUrl: '/assets/images/mayan.png',
-            },
-        ]
+        this._courses = this.courseService.retrieveAll();
+        this.filteredCourse = this._courses;
     }
 
+    set filter(value: String) {
+        this._filterBy = value;
+
+        this.filteredCourse =
+            this._courses.filter((course: Course) =>
+                course.name.toLocaleLowerCase().indexOf(this._filterBy.toLocaleLowerCase()) > -1)
+    }
+
+    get filter() {
+        return this._filterBy;
+    }
 
 }
