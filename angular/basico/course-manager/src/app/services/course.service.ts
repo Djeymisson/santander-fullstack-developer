@@ -13,7 +13,7 @@ export class CourseService {
     constructor(private httClient: HttpClient) { }
 
     retrieveAll(): Observable<Course[]> {
-        return this.httClient.get<Course[]>(this.courseUrl);
+        return this.httClient.get<Course[]>(this.courseUrl)
     }
 
     retrieveById(id: number): Observable<Course> {
@@ -22,9 +22,13 @@ export class CourseService {
 
     save(course: Course): Observable<Course> {
         if (course.id)
-            return this.httClient.put<Course>(`${this.courseUrl}/${course.id}`, course);
+            return this.httClient.put<Course>(`${this.courseUrl}/${course.id}`, course)
         else
-            return this.httClient.post<Course>(this.courseUrl, course);
+            return this.httClient.post<Course>(this.courseUrl, course)
+    }
+
+    deleteById(id: Number): Observable<any> {
+        return this.httClient.delete<any>(`${this.courseUrl}/${id}`)
     }
 
 }
