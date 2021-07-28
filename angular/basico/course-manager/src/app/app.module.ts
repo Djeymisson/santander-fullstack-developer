@@ -9,12 +9,11 @@ import { CourseInfoComponent } from './components/course-info/course-info.compon
 import { CourseListComponent } from './components/course-list/course-list.component';
 import { FourOhFourComponent } from './components/four-oh-four/FourOhFour.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { StarComponent } from './components/stars/stars.component';
-import { ReplacePipe } from './pipes/replace.pipe';
+import { StarComponent } from './shared/components/stars/stars.component';
+import { ReplacePipe } from './shared/pipes/replace.pipe';
+import { CourseModule } from './components/course.module';
 
-const routes: Routes = [
-  { path: 'courses', component: CourseListComponent },
-  { path: 'courses/info/:id', component: CourseInfoComponent },
+const ROUTES: Routes = [
   { path: '', redirectTo: 'courses', pathMatch: 'full' },
   { path: '**', component: FourOhFourComponent }
 ];
@@ -22,18 +21,14 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    CourseListComponent,
-    StarComponent,
-    ReplacePipe,
     NavBarComponent,
-    FourOhFourComponent,
-    CourseInfoComponent
+    FourOhFourComponent
   ],
   imports: [
+    CourseModule,
     BrowserModule,
-    FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(ROUTES)
   ],
   providers: [],
   bootstrap: [AppComponent]
