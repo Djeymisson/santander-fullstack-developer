@@ -1,13 +1,19 @@
 import { NgModule } from "@angular/core";
-import { RouterModule } from "@angular/router";
+import { RouterModule, Routes } from "@angular/router";
+import { FourOhFourComponent } from "./components/four-oh-four/FourOhFour.component";
 import { NavBarComponent } from "./components/nav-bar/nav-bar.component";
+
+const ROUTES: Routes = [
+    { path: '**', component: FourOhFourComponent }
+];
 
 @NgModule({
     declarations: [
-        NavBarComponent
+        NavBarComponent,
+        FourOhFourComponent
     ],
     imports: [
-        RouterModule
+        RouterModule.forChild(ROUTES)
     ],
     exports: [
         NavBarComponent
