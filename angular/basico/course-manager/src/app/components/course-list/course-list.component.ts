@@ -3,7 +3,6 @@ import { CourseService } from "src/app/services/course.service";
 import { Course } from "../../models/course";
 
 @Component({
-    selector: 'app-course-list',
     templateUrl: './course-list.component.html'
 })
 export class CourseListComponent implements OnInit {
