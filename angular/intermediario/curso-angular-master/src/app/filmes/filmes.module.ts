@@ -15,7 +15,6 @@ import { VisualizarFilmesComponent } from './visualizar-filmes/visualizar-filmes
     CommonModule,
     MaterialModule,
     ReactiveFormsModule,
-    FormsModule,
     CamposModule,
     InfiniteScrollModule
   ],
