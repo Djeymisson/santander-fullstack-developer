@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Filme } from '../shared/models/filme';
-import { ConfigPrams } from '../shared/models/config-prams';
+import { ConfigParams } from '../shared/models/config-params';
 import { ConfigParamsService } from './config-params.service';
 
 const url = 'http://localhost:3000/filmes/';
@@ -13,7 +13,7 @@ const url = 'http://localhost:3000/filmes/';
 export class FilmesService {
 
   constructor(private http: HttpClient,
-              private configService: ConfigParamsService) { }
+    private configService: ConfigParamsService) { }
 
   salvar(filme: Filme): Observable<Filme> {
     return this.http.post<Filme>(url, filme);
@@ -23,9 +23,9 @@ export class FilmesService {
     return this.http.put<Filme>(url + filme.id, filme);
   }
 
-  listar(config: ConfigPrams): Observable<Filme[]> {
+  listar(config: ConfigParams): Observable<Filme[]> {
     const configPrams = this.configService.configurarParametros(config);
-    return this.http.get<Filme[]>(url, {params: configPrams});
+    return this.http.get<Filme[]>(url, { params: configPrams });
   }
 
   visualizar(id: number): Observable<Filme> {

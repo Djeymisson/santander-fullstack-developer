@@ -17,9 +17,9 @@ export class VisualizarFilmesComponent implements OnInit {
   id: number;
 
   constructor(public dialog: MatDialog,
-              private activatedRoute: ActivatedRoute,
-              private router: Router,
-              private filmesService: FilmesService) { }
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private filmesService: FilmesService) { }
 
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params['id'];
@@ -44,7 +44,7 @@ export class VisualizarFilmesComponent implements OnInit {
     dialogRef.afterClosed().subscribe((opcao: boolean) => {
       if (opcao) {
         this.filmesService.excluir(this.id)
-        .subscribe(() => this.router.navigateByUrl('/filmes'));
+          .subscribe(() => this.router.navigateByUrl('/filmes'));
       }
     });
   }

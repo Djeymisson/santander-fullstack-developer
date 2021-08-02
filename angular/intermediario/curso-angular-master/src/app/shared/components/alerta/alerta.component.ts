@@ -20,7 +20,7 @@ export class AlertaComponent implements OnInit {
   } as Alerta;
 
   constructor(public dialogRef: MatDialogRef<AlertaComponent>,
-              @Inject(MAT_DIALOG_DATA) public data: Alerta) { }
+    @Inject(MAT_DIALOG_DATA) public data: Alerta) { }
 
   ngOnInit() {
     if (this.data) {
