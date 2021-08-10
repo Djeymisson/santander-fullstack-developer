@@ -2,8 +2,5 @@
 spring:
   application:
     name: shopping-cart
-
-  cloud:
-    config:
-      enabled: false
-#      uri: http://localhost:8888
+  redis:
+    host: localhost
