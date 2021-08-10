@@ -4,7 +4,7 @@ Projeto criado para demonstrar como funciona uma arquitetura de software baseada
 
 ## Arquitetura do projeto
 
-![arquitetura do projeto](https://github.com/Djeymisson/santander-fullstack-developer/blob/main/spring-cloud/arquitetura.png)
+![arquitetura do projeto](https://github.com/Djeymisson/santander-fullstack-developer/blob/main/spring-cloud/arch.png)
 
 O projeto está consistido por:
 
