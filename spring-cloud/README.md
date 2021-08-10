@@ -1,14 +1,10 @@
 # Spring Cloud Project
 
-------
-
 Projeto criado para demonstrar como funciona uma arquitetura de software baseada em micros serviços usando Spring Cloud (2.5.3) e containers Dockers para armazenamento com ElasticSearch (7.13.3) e Redis (3.0.1).
 
 ## Arquitetura do projeto
 
-------
-
-![arquitetura do projeto]()
+![arquitetura do projeto](https://github.com/Djeymisson/santander-fullstack-developer/blob/main/spring-cloud/arquitetura.png)
 
 O projeto está consistido por:
 
