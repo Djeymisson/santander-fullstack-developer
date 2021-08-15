@@ -1,8 +1,14 @@
 package com.digitalinnovation.one.meetingroom.model;
 
-import lombok.*;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 @Getter
 @Setter
@@ -20,22 +26,24 @@ public class Room {
     private String name;
 
     @Column(nullable = false)
-    private String date;
+    private LocalDate date;
 
     @Column(nullable = false)
-    private String startHour;
+    @JsonFormat(pattern = "HH:mm")
+    private LocalTime startHour;
 
     @Column(nullable = false)
-    private String endHour;
+    @JsonFormat(pattern = "HH:mm")
+    private LocalTime endHour;
 
     @Override
     public String toString() {
         return "Room{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", date='" + date + '\'' +
-                ", startHour='" + startHour + '\'' +
-                ", endHour='" + endHour + '\'' +
+                ", date='" + date.toString() + '\'' +
+                ", startHour='" + startHour.toString() + '\'' +
+                ", endHour='" + endHour.toString() + '\'' +
                 '}';
     }
 }
