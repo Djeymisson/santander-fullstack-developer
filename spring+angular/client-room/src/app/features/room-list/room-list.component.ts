@@ -27,7 +27,6 @@ export class RoomListComponent implements OnInit {
     this.roomService.deleteRoom(id)
       .subscribe(
         (data: any) => {
-          console.log(data);
           this.reloadData();
         },
         (error: any) => console.log(error));
@@ -38,6 +37,6 @@ export class RoomListComponent implements OnInit {
   }
 
   updateRoom(id: number) {
-    this.router.navigate(['update', id]);
+    this.router.navigate(['add', id]);
   }
 }
