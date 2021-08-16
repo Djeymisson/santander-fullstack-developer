@@ -28,20 +28,20 @@ export class CreateRoomComponent implements OnInit {
 		if (this.id) {
 			this.roomService.getRoom(this.id)
 				.subscribe(data => {
-					this.room = data;
+					this.initForm(data)
 				}, error => console.log(error));
 		} else {
-			this.form = this.fb.group({
-				name: [undefined, [Validators.required, Validators.minLength(2), Validators.maxLength(256)]],
-				date: [undefined, [Validators.required]],
-				startHour: [undefined, [Validators.required]],
-				endHour: [undefined, [Validators.required]],
-			});
+			this.initForm(this.room)
 		}
 	}
 
-	newRoom(): void {
-		this.room = new Room();
+	initForm(room: Room): void {
+		this.form = this.fb.group({
+			name: [room.name, [Validators.required, Validators.minLength(2), Validators.maxLength(256)]],
+			date: [room.date, [Validators.required]],
+			startHour: [room.startHour, [Validators.required]],
+			endHour: [room.endHour, [Validators.required]],
+		});
 	}
 
 	onSubmit() {
@@ -82,6 +82,6 @@ export class CreateRoomComponent implements OnInit {
 	}
 
 	gotoList() {
-		this.router.navigate(['/rooms']);
+		this.router.navigate(['/']);
 	}
 }
