@@ -19,8 +19,8 @@ export class RoomService {
     return this.http.post(`${this.baseUrl}`, room);
   }
 
-  updateRoom(id: number, value: any): Observable<Object> {
-    return this.http.put(`${this.baseUrl}/${id}`, value);
+  updateRoom(id: number, room: Object): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/${id}`, room);
   }
 
   deleteRoom(id: number): Observable<any> {

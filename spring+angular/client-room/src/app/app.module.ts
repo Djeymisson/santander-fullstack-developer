@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -8,6 +8,10 @@ import { CreateRoomComponent } from './features/create-room/create-room.componen
 import { RoomDetailsComponent } from './features/room-details/room-details.component';
 import { RoomListComponent } from './features/room-list/room-list.component';
 import { AppRoutes } from './app.routes';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './shared/material/material.module';
+import { CommonModule } from '@angular/common';
+import { InputFieldsModule } from './shared/components/input-fields/input-fields.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,13 @@ import { AppRoutes } from './app.routes';
     BrowserModule,
     AppRoutes,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    CommonModule,
+    MaterialModule,
+    ReactiveFormsModule,
+    InputFieldsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

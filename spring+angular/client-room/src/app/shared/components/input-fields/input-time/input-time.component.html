@@ -1,0 +1,8 @@
+<div [formGroup]="formGroup">
+    <mat-form-field class="full-width">
+        <input matInput readonly aria-label="default time" [ngxTimepicker]="timePicker" [format]="24" readonly
+            [formControlName]="controlName" [placeholder]="placeholder">
+        <ngx-material-timepicker #timePicker></ngx-material-timepicker>
+        <mat-error *ngIf="validator.hasErrorCheck(formControl, 'required')">Campo obrigatório</mat-error>
+    </mat-form-field>
+</div>
